@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Юлия Пигулина](https://up.htmlacademy.ru/javascript/29/user/1891505).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Конотоп] (https://htmlacademy.ru/profile/sineway).
 
 ---
 

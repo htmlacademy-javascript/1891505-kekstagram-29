@@ -3,6 +3,23 @@ const descriptoins = [
   'описание 2',
   'описание 3',
 ];
+const messages = [
+  'Всё отлично!',
+  'В целом всё неплохо. Но не всё.',
+  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
+  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
+  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
+  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
+];
+
+const names = [
+  'Артем',
+  'Вероника',
+  'Светлана',
+  'Надежда',
+  'Денис',
+  'Марат'
+];
 
 /**
  * @param {number} [length]
@@ -14,6 +31,8 @@ function createPictureArray(length = 25) {
   return items.map((start, index) => createPicture(start + index));
 }
 
+createPictureArray();
+
 /**
  * @param {number} id
  * @returns {Picture}
@@ -23,9 +42,31 @@ function createPicture(id) {
   const description = pickItemFromArray(descriptoins);
   const likes = PicIntegerInRange(15, 200);
   // TODO: сгенерировать комментарий
-  const comments = [];
+  const comments = createPictureCommentArray(PicIntegerInRange(0, 20));
 
   return { id, url, description, likes, comments };
+}
+
+/**
+ * @param {number} length
+ * @returns {Array<PictureComment>}
+ */
+function createPictureCommentArray(length) {
+  const items = new Array(length).fill(1);
+
+  return items.map((start, index) => createPictureComment(start + index));
+}
+
+/**
+ * @param {number} id
+ * @returns {PictureComment}
+ */
+function createPictureComment(id) {
+  const avatar = `img/avatar-${PicIntegerInRange(1, 6)}.svg`;
+  const message = pickItemFromArray(messages);
+  const name = pickItemFromArray(names);
+
+  return { id, avatar, message, name };
 }
 
 /**
@@ -34,9 +75,9 @@ function createPicture(id) {
  * @returns {T}
  */
 function pickItemFromArray(items) {
-const index = Math.floor(Math.random() * items.length);
+  const index = Math.floor(Math.random() * items.length);
 
-return items[index];
+  return items[index];
 }
 
 /**

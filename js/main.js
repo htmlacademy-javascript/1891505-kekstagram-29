@@ -40,9 +40,8 @@ createPictureArray();
 function createPicture(id) {
   const url = `photos/${id}.jpg`;
   const description = pickItemFromArray(descriptoins);
-  const likes = PicIntegerInRange(15, 200);
-  // TODO: сгенерировать комментарий
-  const comments = createPictureCommentArray(PicIntegerInRange(0, 20));
+  const likes = pickIntegerInRange(15, 200);
+  const comments = createPictureCommentArray(pickIntegerInRange(0, 20));
 
   return { id, url, description, likes, comments };
 }
@@ -62,7 +61,7 @@ function createPictureCommentArray(length) {
  * @returns {PictureComment}
  */
 function createPictureComment(id) {
-  const avatar = `img/avatar-${PicIntegerInRange(1, 6)}.svg`;
+  const avatar = `img/avatar-${pickIntegerInRange(1, 6)}.svg`;
   const message = pickItemFromArray(messages);
   const name = pickItemFromArray(names);
 
@@ -85,7 +84,7 @@ function pickItemFromArray(items) {
  * @param {number} max
  * @returns {number}
  */
-function PicIntegerInRange(min, max) {
+function pickIntegerInRange(min, max) {
   const value = min + Math.random() * (max - min);
 
   return Math.round(value);

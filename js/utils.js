@@ -53,10 +53,6 @@ function parseDigits(value) {
   return digits ? Number(digits) : NaN;
 }
 
-fitsLength('проверяемая строка', 20);
-isPalindrome('ДовОд');
-parseDigits('1 кефир, 0.5 батона');
-
 export {
   pickItemFromArray,
   pickIntegerInRange,

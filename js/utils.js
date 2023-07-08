@@ -1,4 +1,26 @@
 /**
+ * @template T
+ * @param {Array<T>} items
+ * @returns {T}
+ */
+function pickItemFromArray(items) {
+  const index = Math.floor(Math.random() * items.length);
+
+  return items[index];
+}
+
+/**
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
+ */
+function pickIntegerInRange(min, max) {
+  const value = min + Math.random() * (max - min);
+
+  return Math.round(value);
+}
+
+/**
  * Проверит, подходит ли `value` по длине.
  * @param {string} value
  * @param {number} maxLength
@@ -34,3 +56,11 @@ function parseDigits(value) {
 fitsLength('проверяемая строка', 20);
 isPalindrome('ДовОд');
 parseDigits('1 кефир, 0.5 батона');
+
+export {
+  pickItemFromArray,
+  pickIntegerInRange,
+  fitsLength,
+  isPalindrome,
+  parseDigits
+};
